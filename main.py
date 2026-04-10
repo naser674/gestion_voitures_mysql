@@ -1,5 +1,5 @@
 from voiture import Voiture
-from crud_db import ajouter_voiture, supprimer_voiture, recuperer_voitures, connecter_db
+from crud_db import ajouter_voiture, supprimer_voiture, recuperer_voitures, connecter_db,modifier_voiture
 
 
 def vider_table_voiture():
@@ -59,7 +59,8 @@ def main():
     afficher_liste_voitures("Liste des voitures après ajout :", voitures)
 
     supprimer_voiture(3)
-
+    voiture_modifiee = Voiture("Volkswagen", "Jetta GLI", 2024, 29500, 2)
+    modifier_voiture(voiture_modifiee)
     voitures = recuperer_voitures()
     afficher_liste_voitures("Liste des voitures après suppression :", voitures)
 
