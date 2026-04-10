@@ -56,3 +56,20 @@ def ajouter_voiture(voiture):
     connexion.close()
 
     print("Voiture ajoutée avec succès.")
+def supprimer_voiture(id):
+    connexion = connecter_db()
+
+    if connexion is None:
+        print("Connexion impossible à la base de données.")
+        return
+
+    curseur = connexion.cursor()
+
+    requete = "DELETE FROM voiture WHERE id = %s"
+    curseur.execute(requete, (id,))
+
+    connexion.commit()
+    curseur.close()
+    connexion.close()
+
+    print("Voiture supprimée avec succès.")
