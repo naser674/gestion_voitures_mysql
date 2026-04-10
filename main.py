@@ -58,7 +58,7 @@ def main():
     voitures = recuperer_voitures()
     afficher_liste_voitures("Liste des voitures après ajout :", voitures)
 
-    supprimer_voiture(2)
+    supprimer_voiture(3)
 
     voitures = recuperer_voitures()
     afficher_liste_voitures("Liste des voitures après suppression :", voitures)
