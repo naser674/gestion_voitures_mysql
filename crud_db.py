@@ -103,3 +103,26 @@ def recuperer_voitures():
     connexion.close()
 
     return liste_voitures
+def modifier_voiture(voiture):
+    connexion = connecter_db()
+
+    if connexion is None:
+        print("Connexion impossible à la base de données.")
+        return
+
+    curseur = connexion.cursor()
+
+    requete = """
+    UPDATE voiture
+    SET marque = %s, modele = %s, annee = %s, prix = %s
+    WHERE id = %s
+    """
+
+    valeurs = (voiture.marque, voiture.modele, voiture.annee, voiture.prix, voiture.id)
+    curseur.execute(requete, valeurs)
+
+    connexion.commit()
+    curseur.close()
+    connexion.close()
+
+    print("Voiture modifiée avec succès.")
