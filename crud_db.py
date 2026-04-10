@@ -19,7 +19,7 @@ def connecter_db():
     except FileNotFoundError:
         print("Erreur : le fichier config.json est introuvable.")
     except KeyError as e:
-        print(f"Erreur : clé manquante dans config.json : {e}")
+        print(f"Erreur : cle manquante dans config.json : {e}")
     except mysql.connector.Error as e:
         print(f"Erreur de connexion à MySQL : {e}")
 
